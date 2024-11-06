@@ -1,5 +1,5 @@
 {% set name = "dnest4" %}
-{% set version = "0.2.4" %}
+{% set version = "0.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ec164532413599c45969ad8c20a83e2c9504a1ca943bc36c7e9bfb5b67135387
+  sha256: 00a2bd651c931f2b007c948ac4c940ed0946926910384c7954d45d106a8afca5
 
 build:
-  number: 7
+  number: 0
   skip: true  # [win]
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
